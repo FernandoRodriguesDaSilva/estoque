@@ -79,7 +79,7 @@ if(isset($_SESSION['usuario'])){
 	</html>
 
 	<script type="text/javascript">
-		function adicionarDado(idcliente){
+		function adicionarDado(idcliente){ 
 
 			$.ajax({
 				type:"POST",
@@ -194,3 +194,5 @@ if(isset($_SESSION['usuario'])){
 	header("location:../index.php");
 }
 ?>
+
+

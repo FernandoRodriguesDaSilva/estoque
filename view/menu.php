@@ -1,4 +1,3 @@
-
 <?php require_once "dependencias.php" ?>
 
 <!DOCTYPE html>
@@ -19,7 +18,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="inicio.php"><img class="img-responsive logo img-thumbnail" src="../img/phpoo.png" alt="" width="200px" height="150px"></a>
+          <a class="navbar-brand" href="inicio.php"><img class="img-responsive logo img-thumbnail hidden-xs" src="../img/phpoo.png" alt="" width="200px" height="150px"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
 
@@ -46,22 +45,27 @@
             </ul>
           </li>
 
-          <li><a href="#"><span class="glyphicon glyphicon-usd"></span>Vendas</a>
+          <li><a href="vendas.php"><span class="glyphicon glyphicon-usd"></span>Vendas</a>
           </li>
           
           <li class="dropdown" >
-            <a href="#" style="color: red"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Usuario:   <span class="caret"></span></a>
+            <a href="#" style="color: red"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Usuario   <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li> <a style="color: red" href="../procedimentos/sair.php"><span class="glyphicon glyphicon-off"></span> Sair</a></li>
-              
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <!--/.nav-collapse -->
-    </div>
-    <!--/.contatiner -->
-  </div>
+              <!-- visivel apenas para o administrador -->
+              <?php if($_SESSION['usuario'] == "admin"){ ?>
+               <li> <a style="color: red" href="usuarios.php"><span class="glyphicon glyphicon-off"></span> Gestão de pessoas</a></li>
+             <?php } ?>
+             <!--  Fim visivel apenas para o administrador -->
+             <li> <a style="color: red" href="../procedimentos/sair.php"><span class="glyphicon glyphicon-off"></span> Sair</a></li>
+
+           </ul>
+         </li>
+       </ul>
+     </div>
+     <!--/.nav-collapse -->
+   </div>
+   <!--/.contatiner -->
+ </div>
 </div>
 <!-- Main jumbotron for a primary marketing message or call to action -->
 

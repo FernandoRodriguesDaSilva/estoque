@@ -4,9 +4,9 @@
 require_once "../../classes/conexao.php";
 require_once "../../classes/fornecedores.php";
 
-$id = $_POST['idcliente'];
+$id = $_POST['idfornecedor'];
 
 $obj = new fornecedores();
-echo $obj->excluirFornecedores($id);
+echo $obj->excluirFornecedor($id);
 
 ?>

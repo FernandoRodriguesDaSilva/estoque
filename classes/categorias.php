@@ -9,7 +9,6 @@ class categorias{
 		return mysqli_query($conexao, $sql);
 	}
 
-
 	public function atualizarCategoria($dados){
 		$c = new conectar();
 		$conexao=$c->conexao();

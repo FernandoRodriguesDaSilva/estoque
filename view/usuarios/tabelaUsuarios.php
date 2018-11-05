@@ -1,26 +1,22 @@
-
+<!-- Listando os usuarios na View/usuarios.php -->
 <?php 
 
-
 require_once "../../classes/conexao.php";
+
 $c = new conectar();
 $conexao=$c->conexao();
 
-$sql = "SELECT id_cliente, nome, sobrenome, endereco, email, telefone, cpf FROM clientes";
+$sql = "SELECT id, nome, user, email FROM usuarios";
 $result = mysqli_query($conexao, $sql);
 
 ?>
 
-
 <table class="table table-hover table-condensed table-bordered" style="text-align: center;">
-	<caption><label>Clientes</label></caption>
+	<caption><label>Usuarios no sistema</label></caption>
 	<tr>
 		<td>Nome</td>
-		<td>Sobrenome</td>
-		<td>Endereço</td>
+		<td>Usuario</td>
 		<td>Email</td>
-		<td>Telefone</td>
-		<td>CPF</td>
 		<td>Editar</td>
 		<td>Excluir</td>
 	</tr>
@@ -31,21 +27,17 @@ $result = mysqli_query($conexao, $sql);
 			<td><?php echo $mostrar[1]; ?></td>
 			<td><?php echo $mostrar[2]; ?></td>
 			<td><?php echo $mostrar[3]; ?></td>
-			<td><?php echo $mostrar[4]; ?></td>
-			<td><?php echo $mostrar[5]; ?></td>
-			<td><?php echo $mostrar[6]; ?></td>
 			<td>
-				<span class="btn btn-warning btn-xs" data-toggle="modal" data-target="#abremodalClientesUpdate" onclick="adicionarDado('<?php echo $mostrar[0]; ?>')">
-					<span class="glyphicon glyphicon-pencil"></span>
+				<!-- Botão que editar usuario -->
+				<span class="btn btn-warning btn-xs" data-toggle="modal" data-target="#atualizaUsuarioModal" onclick="adicionarDados('<?php echo $mostrar[0]; ?>')">
+					<span class="glyphicon glyphicon-wrench"></span>
 				</span>
 			</td>
 			<td>
-				<span class="btn btn-danger btn-xs" onclick="eliminarCliente('<?php echo $mostrar[0]; ?>')">
+				<span class="btn btn-danger btn-xs" onclick="eliminarUsuario('<?php echo $mostrar[0]; ?>')">
 					<span class="glyphicon glyphicon-remove"></span>
 				</span>
 			</td>
 		</tr>
-
-
 		<?php endWhile; ?>
 	</table>

@@ -10,7 +10,6 @@ $validar = 0;
 if(mysqli_num_rows($result) > 0){
 	header("location:index.php");
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -20,8 +19,6 @@ if(mysqli_num_rows($result) > 0){
 	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
 	<script src="lib/jquery-3.2.1.min.js"></script>
 	<script src="js/funcoes.js"></script>
-	
-
 </head>
 <body style="background-color: gray">
 	<br><br><br>
@@ -54,27 +51,21 @@ if(mysqli_num_rows($result) > 0){
 </body>
 </html>
 
-
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#registro').click(function(){
-
 			vazios=validarFormVazio('frmRegistro');
-
 			if(vazios > 0){
 				alert("Preencha os Campos!!");
 				return false;
 			}
-
 			dados=$('#frmRegistro').serialize();
-			
 			$.ajax({
 				type:"POST",
 				data:dados,
 				url:"procedimentos/login/registrarUsuario.php",
 				success:function(r){
 					//alert(r);
-
 					if(r==1){
 						alert("Inserido com Sucesso!!");
 					}else{

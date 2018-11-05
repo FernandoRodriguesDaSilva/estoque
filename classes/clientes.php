@@ -12,7 +12,7 @@ class clientes{
 		$c = new conectar();
 		$conexao=$c->conexao();
 
-		$sql = "SELECT id_cliente, nome, sobrenome, endereco, email, telefone, cpf from clientes where id_cliente='$idcliente' ";
+		$sql = "SELECT id_cliente, nome, sobrenome, endereco, email, telefone, cpf FROM clientes WHERE id_cliente='$idcliente' ";
 		$result = mysqli_query($conexao, $sql);
 		$mostrar = mysqli_fetch_row($result);
 		$dados = array(

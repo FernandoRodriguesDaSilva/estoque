@@ -2,26 +2,25 @@
 
 
 require_once "../../classes/conexao.php";
-require_once "../../classes/clientes.php";
+require_once "../../classes/fornecedores.php";
 
 
 
-$obj = new clientes();
+$obj = new fornecedores();
 
 
 
 $dados=array(
-	$_POST['idclienteU'],
+	$_POST['idfornecedorU'],
 	$_POST['nomeU'],
 	$_POST['sobrenomeU'],
 	$_POST['enderecoU'],
 	$_POST['emailU'],
-	$_POST['telefoneU'],
 	$_POST['cpfU']
 	
 
 );
 
-echo $obj->atualizarCliente($dados);
+echo $obj->atualizarFornecedor($dados);
 
  ?>
